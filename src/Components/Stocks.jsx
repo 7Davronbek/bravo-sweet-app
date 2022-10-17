@@ -1,4 +1,3 @@
-import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -6,8 +5,14 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import { Pagination, Navigation } from "swiper";
+import { useDispatch } from "react-redux";
+import { ADD } from "../redux/actions/cartAction";
 
 const Stocks = () => {
+    const dispatch = useDispatch()
+    const addToCart = item => {
+        dispatch(ADD(item))
+    }
     return (
         <>
 
@@ -25,8 +30,6 @@ const Stocks = () => {
                     <div className="stock_name_2">
                         Cладости
                     </div>
-
-
 
 
                     <Swiper
@@ -63,7 +66,7 @@ const Stocks = () => {
                                                     121 000 сум  </div>
                                             </div>
                                             <div className="stock_btn">
-                                                <button>Заказать
+                                                <button  >Заказать
                                                 </button>
                                             </div>
                                         </div>
