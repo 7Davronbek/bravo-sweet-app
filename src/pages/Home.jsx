@@ -6,10 +6,10 @@ import HeadForum from '../Components/HeadForum'
 import HeadWhy from '../Components/HeadWhy'
 import Navbar from '../Components/Navbar'
 import Stocks from '../Components/Stocks'
-import Countdown from 'react-countdown';
+// import Countdown from 'react-countdown';
 
 const Home = () => {
-   
+
     return (
         <>
             {/* <Countdown date={Date.now() + 100} /> */}
