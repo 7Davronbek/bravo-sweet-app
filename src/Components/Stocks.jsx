@@ -7,6 +7,7 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 import { useDispatch } from "react-redux";
 import { ADD } from "../redux/actions/cartAction";
+import { data } from "../backend/data";
 
 const Stocks = () => {
     const dispatch = useDispatch()
@@ -49,100 +50,31 @@ const Stocks = () => {
                     >
                         <div className="row">
                             <div className="col-12 ">
-                                <SwiperSlide>
-                                    <div className="stock_box">
-                                        <div>
-                                            <img className='stock_img' src="/image/tort_1.jpeg" alt="" />
-                                            <div className="stock_box_name">Мини торт «Рафаэлло»</div>
-                                            <div className="stock_box_p">
-                                                Воздушный бисквит пропитан молочным сиропом, миндальный крустилант, вафельная начинка со сгущенкой с миндальным грильяжем и кокосовым кремом Шантилье
-                                                Торт рассчитан на 6-8 персон.  </div>
-                                        </div>
-                                        <div className="stock_sale_box">
-                                            <div className="stock_sales">
-                                                <div className="stock_box_h_old">
-                                                    140 000 сум  </div>
-                                                <div className="stock_box_h">
-                                                    121 000 сум  </div>
-                                            </div>
-                                            <div className="stock_btn">
-                                                <button  >Заказать
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <div className="stock_box">
-                                        <div>
-                                            <img className='stock_img' src="/image/tort_1.jpeg" alt="" />
-                                            <div className="stock_box_name">Мини торт «Рафаэлло»</div>
-                                            <div className="stock_box_p">
-                                                Воздушный бисквит пропитан молочным сиропом, миндальный крустилант, вафельная начинка со сгущенкой с миндальным грильяжем и кокосовым кремом Шантилье
-                                                Торт рассчитан на 6-8 персон.  </div>
-                                        </div>
-                                        <div className="stock_sale_box">
-                                            <div className="stock_sales">
-                                                <div className="stock_box_h_old">
-                                                    140 000 сум  </div>
-                                                <div className="stock_box_h">
-                                                    121 000 сум  </div>
-                                            </div>
-                                            <div className="stock_btn">
-                                                <button>Заказать
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <div className="stock_box">
-                                        <div>
-                                            <img className='stock_img' src="/image/tort_1.jpeg" alt="" />
-                                            <div className="stock_box_name">Мини торт «Рафаэлло»</div>
-                                            <div className="stock_box_p">
-                                                Воздушный бисквит пропитан молочным сиропом, миндальный крустилант, вафельная начинка со сгущенкой с миндальным грильяжем и кокосовым кремом Шантилье
-                                                Торт рассчитан на 6-8 персон.  </div>
-                                        </div>
-                                        <div className="stock_sale_box">
-                                            <div className="stock_sales">
-                                                <div className="stock_box_h_old">
-                                                    140 000 сум  </div>
-                                                <div className="stock_box_h">
-                                                    121 000 сум  </div>
-                                            </div>
-                                            <div className="stock_btn">
-                                                <button>Заказать
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <div className="stock_box">
-                                        <div>
-                                            <img className='stock_img' src="/image/tort_1.jpeg" alt="" />
-                                            <div className="stock_box_name">Мини торт «Рафаэлло»</div>
-                                            <div className="stock_box_p">
-                                                Воздушный бисквит пропитан молочным сиропом, миндальный крустилант, вафельная начинка со сгущенкой с миндальным грильяжем и кокосовым кремом Шантилье
-                                                Торт рассчитан на 6-8 персон.  </div>
-                                        </div>
-                                        <div className="stock_sale_box">
-                                            <div className="stock_sales">
-                                                <div className="stock_box_h_old">
-                                                    140 000 сум  </div>
-                                                <div className="stock_box_h">
-                                                    121 000 сум  </div>
-                                            </div>
-                                            <div className="stock_btn">
-                                                <button>Заказать
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
 
-
+                                {data && data.map((item, index) => (
+                                    <SwiperSlide key={index}>
+                                        <div className="stock_box">
+                                            <div>
+                                                <img className='stock_img' src={item.image} alt={item.title} />
+                                                <div className="stock_box_name">{item.title}</div>
+                                                <div className="stock_box_p">
+                                                   {item.name}</div>
+                                            </div>
+                                            <div className="stock_sale_box">
+                                                <div className="stock_sales">
+                                                    <div className="stock_box_h_old">
+                                                        {item.oldPrice} сум  </div>
+                                                    <div className="stock_box_h">
+                                                        {item.price} сум  </div>
+                                                </div>
+                                                <div className="stock_btn">
+                                                    <button onClick={() => addToCart(item)} >Заказать
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </SwiperSlide>
+                                ))}
                             </div>
 
 

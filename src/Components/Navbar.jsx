@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     const [Buy, SetBuy] = useState(false);
 
+    const getData = useSelector(item => item.cartReducer.carts)
 
     return (
         <>
@@ -26,7 +28,7 @@ const Navbar = () => {
                                 <div className="nav_work">Ежедневно с 8:00 до 23:00</div>
                             </a>
                             <img onClick={() => SetBuy(!Buy)} className="nav_buy_icon" src="/image/buy_box.png" alt="" />
-
+                            {getData.length}
                         </div>
                         <div className="nav_buy ">
                         </div>
