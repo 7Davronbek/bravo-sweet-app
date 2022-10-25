@@ -1,10 +1,12 @@
 import React from 'react'
-import CartHeader from '../Components/CartHeader'
+import CartHeader from '../Components/Cart/CartHeader'
+import CartPrice from '../Components/Cart/CartPrice'
 
 const Cart = () => {
     return (
         <>
             <CartHeader />
+            <CartPrice />
         </>
     )
 }
