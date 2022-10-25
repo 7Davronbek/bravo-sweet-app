@@ -23,12 +23,12 @@ const Navbar = () => {
                         <div className="col-5 d-flex justify-content-evenly align-items-center">
 
                             <Link to='/Contacts' className="nav_a">Контакты</Link>
-                            <a href="" className="nav_phone">
+                            <a href="tel: +998996366666" className="nav_phone">
                                 <div className="nav_call">+998 (90) 000 00 00</div>
                                 <div className="nav_work">Ежедневно с 8:00 до 23:00</div>
                             </a>
                             <img onClick={() => SetBuy(!Buy)} className="nav_buy_icon" src="/image/buy_box.png" alt="" />
-                            {getData.length}
+                            <Link to='/cart'>{getData.length}</Link>
                         </div>
                         <div className="nav_buy ">
                         </div>
